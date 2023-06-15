@@ -27,7 +27,7 @@
                 android:layout_height="50dp"
                 android:src="@drawable/baseline_home_24"
                 android:background="@color/white"
-                android:onClick="homeButton"
+                android:id="@+id/homeButton"
                 />
 
             <TextView
@@ -50,7 +50,7 @@
                 android:layout_height="50dp"
                 android:src="@drawable/baseline_add_box_24"
                 android:background="@color/white"
-                android:onClick="addButton"
+                android:id="@+id/addButton"
                 />
 
             <TextView
@@ -73,7 +73,7 @@
                 android:layout_height="50dp"
                 android:src="@drawable/baseline_view_list_24"
                 android:background="@color/white"
-                android:onClick="myListButton"
+                android:id="@+id/myListButton"
                 />
 
             <TextView

@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentTransaction.replace(R.id.bottumbar,new buttomTabsFragment());
         fragmentTransaction.replace(R.id.headerbar, new headerFragment());
+        //fragmentTransaction.replace(R.id.recyclerview,new addFunctions());
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 
