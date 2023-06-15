@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "663221436647",
+    "project_id": "connecting-kids-84b3f",
+    "storage_bucket": "connecting-kids-84b3f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:663221436647:android:238c04e9bafff64e5a2242",
+        "android_client_info": {
+          "package_name": "com.example.connectingkids"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "663221436647-77jq2u605e07o3cmutgd1tgibencmk20.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmZehkX3iH4W7ET67n1eTHcUTPR7QVfDo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "663221436647-77jq2u605e07o3cmutgd1tgibencmk20.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
