@@ -71,7 +71,7 @@ public class SignUp extends AppCompatActivity {
                     progressBar.setVisibility(View.INVISIBLE);
                 } else {
                     progressBar.setVisibility(View.INVISIBLE);
-                    Toast.makeText(SignUp.this, "Registration Failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUp.this, "Registration Failed: or email already registered", Toast.LENGTH_SHORT).show();
                 }
             }
         });
