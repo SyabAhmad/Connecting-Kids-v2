@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.slider.RangeSlider;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -48,9 +49,21 @@ public class login extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     progressBar.setVisibility(View.INVISIBLE);
-                    Toast.makeText(login.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(login.this, MainActivity.class);
-                    startActivity(intent);
+                    FirebaseUser user = auth.getCurrentUser();
+                    if(user != null){
+                        if (user.isEmailVerified())
+                        {
+                            Toast.makeText(login.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(login.this, MainActivity.class);
+                            startActivity(intent);
+                        } else {
+                            progressBar.setVisibility(View.INVISIBLE);
+                            Toast.makeText(login.this, "Email Not Verified", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+
+
                 }else{
                     progressBar.setVisibility(View.INVISIBLE);
                     Toast.makeText(login.this, "Login Failed", Toast.LENGTH_SHORT).show();
@@ -72,6 +85,8 @@ public class login extends AppCompatActivity {
 
     public void forgotpassword(View view)
     {
-
+        this.finish();
+        Intent intent = new Intent(this, forgotpassword.class);
+        startActivity(intent);
     }
 }
