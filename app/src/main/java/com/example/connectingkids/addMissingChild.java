@@ -1,5 +1,9 @@
 package com.example.connectingkids;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +11,20 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.google.firebase.storage.StorageReference;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
+
+import java.security.Permission;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +37,9 @@ public class addMissingChild extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static final int REQUEST_IMAGE_PICK = 1;
+    ImageView eimageFromUser = getView().findViewById(R.id.imageFromUser);
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -59,6 +80,79 @@ public class addMissingChild extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_missing_child, container, false);
+        View view= inflater.inflate(R.layout.fragment_add_missing_child,container,false);
+
+        Button takeImageFromUser=view.findViewById(R.id.takeImageFromUser);
+
+        takeImageFromUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                takeimageFunction();
+            }
+        });
+
+        return view;
+
     }
+
+
+
+    private void takeimageFunction() {
+        Dexter.withContext(requireContext())
+                .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                .withListener(new PermissionListener() {
+                    @Override
+                    public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
+                        // Permission is granted, proceed with selecting an image from the gallery or accessing storage
+                        selectImage();
+                    }
+
+                    @Override
+                    public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
+                        // Permission is denied
+                        // You can show a message to the user or handle the denial case as per your requirements
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
+                        // Permission needs to be requested again
+                        permissionToken.continuePermissionRequest();
+                    }
+                })
+                .check();
+    }
+
+    private void selectImage() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.setType("image/*");
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+
+        startActivityForResult(intent, REQUEST_IMAGE_PICK);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_IMAGE_PICK && resultCode == Activity.RESULT_OK && data != null) {
+            Uri imageUri = data.getData();
+
+            int targetSize = Math.min(eimageFromUser.getWidth(), eimageFromUser.getHeight());
+
+            Glide.with(requireContext())
+                    .load(imageUri)
+                    .apply(RequestOptions.circleCropTransform()
+                            .apply(new RequestOptions())
+                            .override(targetSize, targetSize))
+                    .into(eimageFromUser);
+
+            //eimageFromUser.setImageURI(imageUri);
+            // Do something with the selected image URI
+            // For example, you can display the image in an ImageView or perform further processing
+        }
+    }
+
+
+
+
 }

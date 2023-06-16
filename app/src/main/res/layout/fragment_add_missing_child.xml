@@ -40,6 +40,7 @@
                 android:layout_weight=".8"
                 android:backgroundTint="@color/skybkue1"
                 android:text="Upload"
+                android:id="@+id/takeImageFromUser"
                 android:textSize="13sp"
                 app:cornerRadius="20dp" />
 
