@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".addMissingChild">
+
+    <!-- TODO: Update blank fragment layout -->
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            >
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/imageFromUser"
+                android:layout_weight=".5"
+                android:background="@drawable/baseline_account_circle_24"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_weight=".8"
+                android:backgroundTint="@color/skybkue1"
+                android:text="Upload"
+                android:textSize="13sp"
+                app:cornerRadius="20dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="40dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name *"
+                    android:layout_marginBottom="5dp"/>
+                <EditText
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:hint="Azlan Khan"
+                    android:gravity="left|center"
+                    android:padding="10dp"
+                    android:textSize="15sp"
+
+                    android:background="@drawable/input_field_background"
+                    android:textColorHint="@color/gray"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="20dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name *"
+                    android:layout_marginBottom="5dp"/>
+                <EditText
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:hint="15"
+                    android:gravity="left|center"
+                    android:padding="10dp"
+                    android:textSize="15sp"
+                    android:background="@drawable/input_field_background"
+                    android:textColorHint="@color/gray"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email address*"
+                    android:inputType="textEmailAddress"
+                    android:layout_marginBottom="5dp"/>
+                <EditText
+                    android:layout_width="320dp"
+                    android:layout_height="40dp"
+                    android:hint="example@gmail.com" android:gravity="left|center"
+                    android:padding="10dp"
+                    android:textSize="15sp"
+                    android:background="@drawable/input_field_background"
+                    android:textColorHint="@color/gray"
+                    android:layout_gravity="center"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone number*"
+                    android:layout_marginBottom="5dp"/>
+                <EditText
+                    android:layout_width="320dp"
+                    android:layout_height="40dp"
+                    android:hint="+923557684312" android:gravity="left|center"
+                    android:padding="10dp"
+                    android:inputType="number"
+                    android:textSize="15sp"
+                    android:background="@drawable/input_field_background"
+                    android:textColorHint="@color/gray"
+                    android:layout_gravity="center"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Secondary phone number"
+                    android:layout_marginBottom="5dp"/>
+                <EditText
+                    android:layout_width="320dp"
+                    android:layout_height="40dp"
+                    android:hint="+923557684312" android:gravity="left|center"
+                    android:padding="10dp"
+                    android:textSize="15sp"
+                    android:background="@drawable/input_field_background"
+                    android:textColorHint="@color/gray"
+                    android:layout_gravity="center"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Missing Location*"
+                    android:layout_marginBottom="5dp"/>
+                <EditText
+                    android:layout_width="320dp"
+                    android:layout_height="40dp"
+                    android:hint="mingora, nishat chock" android:gravity="left|center"
+                    android:padding="10dp"
+                    android:textSize="15sp"
+                    android:background="@drawable/input_field_background"
+                    android:textColorHint="@color/gray"
+                    android:layout_gravity="center"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nearest police station*"
+                    android:layout_marginBottom="5dp"/>
+                <EditText
+                    android:layout_width="320dp"
+                    android:layout_height="40dp"
+                    android:hint="Kokrai, swat" android:gravity="left|center"
+                    android:padding="10dp"
+                    android:textSize="15sp"
+                    android:background="@drawable/input_field_background"
+                    android:textColorHint="@color/gray"
+                    android:layout_gravity="center"/>
+
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="100dp"
+                android:gravity="center"
+
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Important: Verify Information* \n\nPlease double-check the provided information for accuracy."
+                    android:textColor="@color/red"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:layout_marginBottom="20dp"/>
+
+                <Button
+                    android:layout_width="320dp"
+                    android:layout_height="50dp"
+                    android:backgroundTint="@color/skybkue1"
+                    android:text="Post and share"
+                    app:cornerRadius="20dp"/>
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="150dp"/>
+        
+        
+        
+    </LinearLayout>
+
+
+</ScrollView>
+
+</FrameLayout>
